@@ -9,9 +9,16 @@ I created a containerized web application (Flask/Node.js) and deployed it in a K
 - Kubernetes (Minikube)
 - NGINX Ingress Controller
 
+## 🌐 Access
+- http://flask.local
+- http://flask.local/health
+
 ## 🚀 Setup Guide
+--> Add in /etc/hosts this line <--
+--> 127.0.0.1 flask.local <-- 
 ```bash
 docker build -t damian/flask-k8s-app:latest app/
 docker push damian/flask-k8s-app:latest
 minikube start
+minikube addons enable ingress
 kubectl apply -f k8s/
