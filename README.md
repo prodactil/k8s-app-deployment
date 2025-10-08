@@ -15,6 +15,7 @@ I created a containerized web application (Flask/Node.js) and deployed it in a K
 
 ## 🚀 Setup Guide
 --> Add in /etc/hosts this line <--
+
 --> 127.0.0.1 flask.local <-- 
 ```bash
 docker build -t prodactil/flask-k8s-app:latest app/
