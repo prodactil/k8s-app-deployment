@@ -9,6 +9,7 @@ WORKDIR /app
 
 # Copy dependencies and install them
 COPY requirements.txt .
+RUN pip install flask prometheus_client
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app code
