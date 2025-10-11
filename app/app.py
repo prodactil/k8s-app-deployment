@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, Response
 from prometheus_client import generate_latest, Counter
 
 app = Flask(__name__)
-REQUEST_COUNT = Counter('flask_request_count', 'Number of requests received')
+
+REQUEST_COUNT = Counter('requests_total', 'Total HTTP Requests')
 
 @app.route('/')
 def home():
@@ -11,4 +12,7 @@ def home():
 
 @app.route('/metrics')
 def metrics():
-    return generate_latest(), 200, {'Content-Type': 'text/plain; charset=utf-8'}
+    return Response(generate_latest(), mimetype='text/plain')
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=80)
