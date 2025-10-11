@@ -1,14 +1,14 @@
-from flask import Flask, jsonify
+from flask import Flask
+from prometheus_client import generate_latest, Counter
 
 app = Flask(__name__)
+REQUEST_COUNT = Counter('flask_request_count', 'Number of requests received')
 
-@app.route("/")
+@app.route('/')
 def home():
-    return jsonify({"message": "Hello from Kubernetes!"})
+    REQUEST_COUNT.inc()
+    return {"message": "Hello from Kubernetes!"}
 
-@app.route("/health")
-def health():
-    return jsonify({"status": "ok"})
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+@app.route('/metrics')
+def metrics():
+    return generate_latest(), 200, {'Content-Type': 'text/plain; charset=utf-8'}
