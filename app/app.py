@@ -14,4 +14,5 @@ def metrics():
     return Response(generate_latest(), mimetype='text/plain')
 
 if __name__ == "__main__":
+    # 0.0.0.0 permite acces din alte pod-uri / servicii
     app.run(host="0.0.0.0", port=5000)
