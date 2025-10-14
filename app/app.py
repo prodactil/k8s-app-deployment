@@ -1,5 +1,6 @@
 from flask import Flask, Response
 from prometheus_client import generate_latest, Counter
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 REQUEST_COUNT = Counter('requests_total', 'Total HTTP Requests')
