@@ -33,7 +33,7 @@ jobs:
     - name: Set up kubectl
       uses: azure/setup-kubectl@v3
       with:
-        version: '1.30.0'
+        version: 'latest'
 
     # 6️⃣ Apply Kubernetes manifests
     - name: Deploy to Kubernetes
