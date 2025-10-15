@@ -8,7 +8,7 @@ I created a containerized web application (Flask) and deployed it in a Kubernete
 
 ## 🧱 Project Structure
 ```bash
-k8s-monitoring/  
+k8s-app-deployment/  
 ├── .github/
 │   └── workflows/
 │       └── ci-cd.yaml
